@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add an Album to the website{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="album_title">Album Title</label>
+    <input name="album_title" id="album_title" required>
+    <label for="song_count">Number of Tracks/Songs</label>
+    <input type="number" name="song_count" id="song_count" required>
+    <label for="artist">Name of Artist</label>
+    <input name="artist" id="artist" required>
+    <input type="submit" value="Add Album">
+  </form>
+{% endblock %}

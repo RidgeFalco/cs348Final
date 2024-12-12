@@ -1,0 +1,3 @@
+#!/bin/sh
+. .venv/bin/activate
+python3 -m flask run --host 100.72.242.68 -p 7171

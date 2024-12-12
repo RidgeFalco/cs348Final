@@ -1,0 +1,13 @@
+I have added four indexes, the first is on User.user_id, the second is on User.username, the third is on AlbumReview.score, and the fourth is on AlbumReview.album
+
+For the first index will be helpful for a query such as:
+    "g.user = sesh.scalar(select(User).where(User.user_id == user_id))"
+Which this query is called a lot as before loading any page and this is done to set the current user
+
+The second index will be very useful for a login query like:
+    "result = sesh.scalar(select(User).where(User.username == username))"
+Which this query is called whenever a user is trying to log in, that way the password information can be accessed.
+
+The third and fourth index will be useful for getting the average album review score which is used in the query:
+    "avgRatingStmt = select(func.avg(AlbumReview.score).label("AverageRating")).where(AlbumReview.album == albumId)"
+This query benfits from having all the scores and then also by saving the album ids in the reviews.

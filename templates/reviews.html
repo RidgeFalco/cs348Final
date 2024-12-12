@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %} Reviews for {{albumName}} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p> Average Rating for this album: {{avgRating}} </p>
+    <ul>
+    {% for review in content %}
+        <li>Username: {{review.username}} </li>
+        <li>Users rating: {{review.rating}} </li>
+        <ul>
+            <li>Text of review: {{review.text}} </li>
+        </ul>
+        <br>
+    {% endfor %}
+    </ul>
+{% endblock %}

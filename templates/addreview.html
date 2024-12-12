@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Add a Review to an Album{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label for="album_name">Name of album</label>
+        <select name="album_name">
+            {% for album in content %}
+            <option value = "{{album.album_name}}" required> {{album.album_name}} </option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="rating">Rating from 0-10 with at most two decimals places</label>
+        <input type="number" name="rating" id="rating" max="10" min="0" step=".01" required>
+        <br>
+        <label for="text">Text Review</label>
+        <input name="text" id="text" required>
+        <br>
+        <input type="submit" value="Add Album Review">
+    </form>
+{% endblock %}

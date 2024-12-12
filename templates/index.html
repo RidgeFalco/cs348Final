@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Account Settings{% endblock %}</h1>
+    {% if g.user %}
+        <a class="action" href="{{ url_for('change_pass') }}">Change Password</a>
+        <br>
+        <a class="action" href="{{ url_for('delete_user') }}">Delete Current User</a>
+        <br>
+        {% if g.user.add_music_perm %}
+            <h1>Admin Actions</h1>
+            <a class="action" href="{{ url_for('add_album') }}">Add Album</a>
+        {% else %}
+            <h1>Create Music Reviews</h1>
+            <a class="action" href="{{ url_for('add_review') }}">Add Album Review</a>
+        {% endif %}
+        <br>
+        <h1>View All Albums</h1>
+        <a class="action" href="{{ url_for('show_albums') }}">All Albums</a>
+    {% endif %}
+{% endblock %}

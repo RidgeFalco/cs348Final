@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Select Album to See Reviews{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label for="album_name">Name of album</label>
+        <select name="album_name">
+            {% for album in content %}
+            <option value = "{{album.album_name}}" required> {{album.album_name}} </option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="View Album's Reviews">
+    </form>
+{% endblock %}
